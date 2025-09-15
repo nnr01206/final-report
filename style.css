@@ -1,0 +1,168 @@
+/* --- 全局設定 --- */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* --- 頁首 --- */
+header {
+    background: linear-gradient(135deg, #4a90e2, #50e3c2);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 5px solid #4a90e2;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* --- 表格樣式 --- */
+.report-table {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* 確保圓角效果 */
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #4a90e2;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+th, td {
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle; /* 垂直置中 */
+}
+
+th {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- 特殊文字顏色 --- */
+td.success {
+    font-weight: bold;
+    color: #2e7d32; /* 綠色表示達成 */
+}
+
+td.highlight {
+    font-weight: bold;
+    color: #d84315; /* 橘紅色，用於特別突顯的成果 */
+    background-color: #fff3e0;
+}
+
+
+/* --- 圖片容器 --- */
+.image-container {
+    width: 100%;
+    max-width: 300px; /* 稍微縮小圖片以平衡版面 */
+    margin: 0 auto;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* --- 頁腳 --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* --- RWD 響應式設計 --- */
+@media (max-width: 992px) {
+    thead {
+        display: none; /* 在小螢幕隱藏傳統表頭 */
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 25px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    td {
+        display: block;
+        text-align: right; /* 將內容推到右邊 */
+        padding: 15px 10px;
+        border-bottom: 1px dotted #ccc;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label); /* 使用 data-label 作為標題 */
+        float: left;
+        font-weight: bold;
+        color: #4a90e2;
+        padding-right: 10px;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    .image-container {
+        margin-top: 15px;
+        margin-right: 0; /* 在手機版，讓圖片置右 */
+        max-width: none;
+    }
+}
